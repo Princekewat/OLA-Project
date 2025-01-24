@@ -14,7 +14,8 @@ module.exports.regosterUser = async (req, resizeBy, next) => {
     const hashedPassword = await userModel.hashPassword(passwoard);
 
     const user = await userService.createUser({
-        firstname,
+        firstname : fullname.firstname,
+        lastname: fullname.lastname,
         lastname,
         email,
         passworrd: hashedPassword
